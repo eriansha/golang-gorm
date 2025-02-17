@@ -1,0 +1,39 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Logs
+*.log
+
+# Compiled object files and caches
+*.o
+*.a
+*.out
+
+# Go binaries
+/bin/
+/vendor/
+
+# Dependency directories (vendor dirs should be excluded if you use go modules)
+Godeps/
+
+# IDE and Editor files
+*.idea/
+*.vscode/
+*.swp
+
+# Go build cache and mod cache
+/go/pkg/mod/
+/go/bin/
+/go/build/
+
+# Environment and config files
+.env
+.env.*
+
+# PostgreSQL database files (optional, if storing locally)
+*.pgdata
+*.pgwal
