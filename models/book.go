@@ -9,7 +9,6 @@ type Book struct {
 	Year        int16
 	AuthorID    int
 	Author      Author
-	CategoryID  int
 	Categories  []*Category `gorm:"many2many:book_categories;"`
 }
 

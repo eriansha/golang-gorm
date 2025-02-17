@@ -38,6 +38,7 @@ func main() {
 	// initialize controller
 	bookController := controllers.NewBookController(db)
 	authorController := controllers.NewAuthorController(db)
+	categoryController := controllers.NewCategoryController(db)
 
 	v1 := router.Group("/api/v1")
 	{
@@ -53,6 +54,11 @@ func main() {
 			books.POST("/", bookController.CreateBook)
 			books.PUT("/:id", bookController.UpdateBook)
 			books.DELETE("/:id", bookController.DeleteBook)
+		}
+
+		category := v1.Group("/category")
+		{
+			category.POST("/", categoryController.CreateCategory)
 		}
 
 		author := v1.Group("/author")
