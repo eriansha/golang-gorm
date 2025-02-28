@@ -49,14 +49,14 @@ func (bc *BookController) CreateBook(c *gin.Context) {
 
 	book = requestBook.ToModel()
 
-	result := bc.DB.Create(&book)
+	result := bc.DB.Create(&book).Preload("Author")
 	if result.Error != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error Creating book"})
 		return
 	}
 
 	// Preload the author data before returning
-	bc.DB.Preload("Author").First(&book, book.ID)
+	bc.DB.Joins("Author").First(&book, book.ID)
 
 	c.JSON(http.StatusCreated, book)
 }
