@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS books (
+  id SERIAL PRIMARY KEY,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  deleted_at TIMESTAMP NULL,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  year INT CHECK (year > 0),
+  author_id INT,
+  FOREIGN KEY (author_id) REFERENCES authors(id) ON DELETE SET NULL
+);
